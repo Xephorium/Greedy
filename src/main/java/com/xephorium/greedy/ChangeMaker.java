@@ -18,38 +18,41 @@ public class ChangeMaker
 {
     /*--- Fields ---*/
 
-    private String   stringValue;
-    private int      intValue;
-    private Currency currency;
+    private int      baseUnitValue;
+    private Currency currency = null;
 
 
     /*--- Constructors ---*/
 
-    public ChangeMaker()
-    {
-        // Set Currency Type
-        // Assign String Value
-        // Perform Int Conversion
-    }
-
     public ChangeMaker(String input)
     {
-        // Set Currency Type
-        // Assign String Value
-        // Perform Int Conversion
+        setCurrency(input.charAt(0));
+        baseUnitValue = currency.convertToBaseUnit(getValue(input));
     }
 
 
     /*--- Public Methods ---*/
 
-    public void setValue(String s)
+    public void setChange(String input)
     {
-        stringValue = s;
-        // Update Currency
-        // Update Int Conversion
+        setCurrency(input.charAt(0));
+        baseUnitValue = currency.convertToBaseUnit(getValue(input));
     }
 
 
     /*--- Private Methods ---*/
+
+    private void setCurrency(char symbol)
+    {
+        if(symbol == '$')
+            currency = new Dollar();
+        else if(symbol == '€')
+            currency = new Euro();
+    }
+
+    private double getValue(String s)
+    {
+        return Double.parseDouble(s.substring(1));
+    }
 
 }

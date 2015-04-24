@@ -1,6 +1,6 @@
 /*
   Christopher Cruzen                           LaunchCode CS50
-  "CurrencyTesting.java"                            04.23.2015
+  "CurrencyTest.java"                               04.23.2015
 
   Problem Set #5
 
@@ -8,18 +8,54 @@
   of the Greedy application's currencytype classes, this class
   contains a number of functionally standalone methods which
   each address a specific runtime case.
-    Note: This kind of method-by-method code evaluation is
-  called Unit Testing. Unit Testing is the industry standard
-  for large-scale software production and can only be
-  accomplished through a unit testing Framework (in this case,
-  JUnit).
 
 */
 
+import com.xephorium.greedy.currency.Dollar;
+import com.xephorium.greedy.currency.Euro;
 import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 public class CurrencyTest
 {
-    /* Test Cases! */
+    /////////////////////////////
+    // Dollar Class Test Cases //
+    /////////////////////////////
 
+    /*---  convertToBaseUnit Method ---*/
+
+    @Test
+    public void doubleDollarValueShouldBeConvertedToIntCents()
+    {
+        Dollar dollar = new Dollar();
+        int temp = dollar.convertToBaseUnit(25.52);
+        assertTrue(temp == 2552);
+
+        temp = dollar.convertToBaseUnit(99.99);
+        assertTrue(temp == 9999);
+
+        temp = dollar.convertToBaseUnit(1000.00);
+        assertTrue(temp == 100000);
+    }
+
+
+    ///////////////////////////
+    // Euro Class Test Cases //
+    ///////////////////////////
+
+    /*--- convertToBaseUnit Method ---*/
+
+    @Test
+    public void doubleEuroValueShouldBeConvertedToIntEuroCents()
+    {
+      Euro euro = new Euro();
+      int temp = euro.convertToBaseUnit(25.52);
+      assertTrue(temp == 2552);
+
+      temp = euro.convertToBaseUnit(99.99);
+      assertTrue(temp == 9999);
+
+      temp = euro.convertToBaseUnit(1000.00);
+      assertTrue(temp == 100000);
+    }
 }

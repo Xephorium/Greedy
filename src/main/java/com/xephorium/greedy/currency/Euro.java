@@ -20,10 +20,9 @@ public class Euro implements Currency
 
     /*--- Methods ---*/
 
-    public int convertToMinimum(String value)
+    public int convertToBaseUnit(Double value)
     {
-        int temp = 5;
-        return temp;
+        return (int)(value * 100);
     }
 
     public int getMinNumCoins(int value)

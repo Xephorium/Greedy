@@ -15,7 +15,7 @@ public interface Currency
 {
     /*--- Methods ---*/
 
-    public int convertToMinimum(String value);
+    public int convertToBaseUnit(Double value);
 
     public int getMinNumCoins(int value);
 
