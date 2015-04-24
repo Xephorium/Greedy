@@ -11,23 +11,39 @@
 
 */
 package com.xephorium.greedy;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+import java.util.Scanner;
 
+@Component
 public class Greedy
 {
+
   public static void main(String[] args)
   {
-    // Create Greedy Object And Call Start
+    // Initialize Spring Context
+    ApplicationContext context =
+            new ClassPathXmlApplicationContext("application.xml");
 
+    // Run Program
+    Greedy program = (Greedy) context.getBean("greedy");
+    program.run();
   }
 
-  public void start()
+
+  public void run()
   {
+    /*--- Main Program ---*/
+
     // Greeting
+    Utilities.customGreeting("Change Maker!");
 
-    // Input Value
-
-    // Create com.xephorium.greedy.ChangeMaker Object & Send Value
+    // Input User Data
+    System.out.println("Enter monetary amount: ");
+    ChangeMaker changeMaker = new ChangeMaker(Utilities.inputSentinel());
 
     // Print Number of Coins
+
   }
 }

@@ -5,8 +5,7 @@
   Problem Set #5
 
     This class contains a set of algorithms that apply to
-  calculations done specifically in the currency of the
-  US Dollar.
+  calculations done specifically in US Dollar currency.
 
 */
 package com.xephorium.greedy.currency;

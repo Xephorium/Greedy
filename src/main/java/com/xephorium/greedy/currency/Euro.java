@@ -5,8 +5,7 @@
   Problem Set #5
 
     This class contains a set of algorithms that apply to
-  calculations done specifically in the currency of the
-  EU Euro.
+  calculations done specifically in EU Euro currency.
 
 */
 package com.xephorium.greedy.currency;

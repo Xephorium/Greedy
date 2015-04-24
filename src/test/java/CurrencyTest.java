@@ -18,7 +18,7 @@
 
 import org.junit.Test;
 
-public class CurrencyTesting
+public class CurrencyTest
 {
     /* Test Cases! */
 

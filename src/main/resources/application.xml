@@ -25,13 +25,7 @@
     <!-- Annotation Activation Code -->
     <!-- Note: Tells Spring to search specified package for any/all
          annotation tags and inject code accordingly. -->
-    <context:component-scan base-package="com.xephorium.mario"/>
+    <context:component-scan base-package="com.xephorium.greedy"/>
 
-    <!-- Example Object (Bean) Creation -->
-    <!--
-    <bean id="testObjectOne" class="com.xephorium.mario.environment.Pyramid">
-           <constructor-arg name="height" ref="7"/>
-    </bean>
-    -->
 
 </beans>
