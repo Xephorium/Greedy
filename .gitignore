@@ -1,0 +1,11 @@
+#########################
+#- Excluded File Types -#
+#########################
+
+
+## Compiled Output ##
+*.class
+ 
+## IntelliJ IDEA Files ##
+*.iml
+.idea
