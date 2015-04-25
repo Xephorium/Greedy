@@ -19,6 +19,4 @@ public interface Currency
 
     public int getMinNumCoins(int value);
 
-    public String getMinCoins(int value);
-
 }

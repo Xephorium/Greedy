@@ -31,10 +31,4 @@ public class Euro implements Currency
         return temp;
     }
 
-    public String getMinCoins(int value)
-    {
-        String temp = "Inconsequential";
-        return temp;
-    }
-
 }

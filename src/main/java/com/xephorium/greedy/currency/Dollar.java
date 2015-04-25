@@ -14,9 +14,11 @@ public class Dollar implements Currency
 {
     /*--- Fields ---*/
 
-    // Coin Name/Value Hash
-
-    /*--- Constructor(s) ---*/
+    private final int[] COIN = {100, // Dollar
+                                25,  // Quarter
+                                10,  // Dime
+                                5,   // Nickel
+                                1};  // Penny
 
     /*--- Methods ---*/
 
@@ -27,14 +29,19 @@ public class Dollar implements Currency
 
     public int getMinNumCoins(int value)
     {
-        int temp = 5;
-        return temp;
-    }
+        int remainingChange = value;
+        int numCoins = 0;
 
-    public String getMinCoins(int value)
-    {
-        String temp = "Inconsequential";
-        return temp;
+        for(int x = 0; x < 5; x++)
+        {
+            if (remainingChange >= COIN[x])
+            {
+                numCoins = numCoins + (remainingChange / COIN[x]);
+                remainingChange = (remainingChange % COIN[x]);
+            }
+        }
+
+        return numCoins;
     }
 
 }

@@ -39,6 +39,11 @@ public class ChangeMaker
         baseUnitValue = currency.convertToBaseUnit(getValue(input));
     }
 
+    public int getNumCoins()
+    {
+        return currency.getMinNumCoins(baseUnitValue);
+    }
+
 
     /*--- Private Methods ---*/
 

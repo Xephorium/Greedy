@@ -40,10 +40,14 @@ public class Greedy
     Utilities.customGreeting("Change Maker!");
 
     // Input User Data
-    System.out.println("Enter monetary amount: ");
+    System.out.print("Enter monetary amount: ");
     ChangeMaker changeMaker = new ChangeMaker(Utilities.inputSentinel());
 
     // Print Number of Coins
-
+    int coins = changeMaker.getNumCoins();
+    if(coins == 1)
+      System.out.println("Minimum: 1 Coin");
+    else
+      System.out.printf("Minimum: %d Coins\n", coins);
   }
 }

@@ -38,6 +38,59 @@ public class CurrencyTest
         assertTrue(temp == 100000);
     }
 
+    /*--- getMinNumCoins Method ---*/
+
+    @Test
+    public void evenDollarsShouldBeThatManyCoins()
+    {
+        Dollar dollar = new Dollar();
+        int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.00));
+        assertTrue(temp == 1);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(5.00));
+        assertTrue(temp == 5);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(25.00));
+        assertTrue(temp == 25);
+    }
+
+    @Test
+    public void singleCoinValuesShouldBeOneCoin()
+    {
+        Dollar dollar = new Dollar();
+        int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.01));
+        assertTrue(temp == 1);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.05));
+        assertTrue(temp == 1);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.10));
+        assertTrue(temp == 1);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.25));
+        assertTrue(temp == 1);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.00));
+        assertTrue(temp == 1);
+    }
+
+    @Test
+    public void otherValueTests()
+    {
+        Dollar dollar = new Dollar();
+        int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.75));
+        assertTrue(temp == 3);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.25));
+        assertTrue(temp == 2);
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.83));
+        assertTrue(temp == 7); // 3 Quarters, 1 Nickel, 3 Pennies
+
+        temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(25.16));
+        assertTrue(temp == 28); // 25 Dollars, 1 Dime, 1 Nickel, 1 Penny
+    }
+
 
     ///////////////////////////
     // Euro Class Test Cases //
