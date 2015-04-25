@@ -75,7 +75,7 @@ public class CurrencyTest
     }
 
     @Test
-    public void otherValueTests()
+    public void otherDollarValueTests()
     {
         Dollar dollar = new Dollar();
         int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.75));
@@ -111,4 +111,49 @@ public class CurrencyTest
       temp = euro.convertToBaseUnit(1000.00);
       assertTrue(temp == 100000);
     }
+
+    /*--- getMinNumCoins Method ---*/
+
+    @Test
+    public void multiplesOfTwoEurosShouldBeHalfThatManyCoins()
+    {
+        Euro euro = new Euro();
+        int temp = euro.getMinNumCoins(euro.convertToBaseUnit(2.00));
+        assertTrue(temp == 1);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(4.00));
+        assertTrue(temp == 2);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(18.00));
+        assertTrue(temp == 9);
+    }
+
+    @Test
+    public void oddNumbersOfEurosShouldBeHalfThatManyCoinsTruncatedPlusOne()
+    {
+        Euro euro = new Euro();
+        int temp = euro.getMinNumCoins(euro.convertToBaseUnit(3.00));
+        assertTrue(temp == 2);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(5.00));
+        assertTrue(temp == 3);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(21.00));
+        assertTrue(temp == 11);
+    }
+
+    @Test
+    public void otherEuroValueTests()
+    {
+        Euro euro = new Euro();
+        int temp = euro.getMinNumCoins(euro.convertToBaseUnit(2.50));
+        assertTrue(temp == 2);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(0.34));
+        assertTrue(temp == 4);
+
+        temp = euro.getMinNumCoins(euro.convertToBaseUnit(1.86));
+        assertTrue(temp == 6);
+    }
+
 }

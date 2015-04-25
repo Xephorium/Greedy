@@ -32,7 +32,7 @@ public class Dollar implements Currency
         int remainingChange = value;
         int numCoins = 0;
 
-        for(int x = 0; x < 5; x++)
+        for(int x = 0; x < COIN.length; x++)
         {
             if (remainingChange >= COIN[x])
             {
