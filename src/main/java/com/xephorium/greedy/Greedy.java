@@ -14,7 +14,6 @@ package com.xephorium.greedy;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-import java.util.Scanner;
 
 @Component
 public class Greedy

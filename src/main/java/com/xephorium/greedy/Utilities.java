@@ -53,7 +53,7 @@ public final class Utilities
     // Return: (String input)
     public static String inputSentinel()
     {
-        Scanner reader = new Scanner(System.in);
+        Scanner reader = new Scanner(System.in, "UTF-8");
         String input;
 
         input = reader.nextLine();
