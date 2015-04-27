@@ -22,10 +22,15 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Annotation Activation Code -->
-    <!-- Note: Tells Spring to search specified package for any/all
-         annotation tags and inject code accordingly. -->
+    <!-- Component Activation Code -->
+    <!-- Note: Tells Spring to search specified package for any
+         component annotation tags and create bean accordingly. -->
     <context:component-scan base-package="com.xephorium.greedy"/>
+
+    <!-- Autowire Activation Code -->
+    <!-- Note: Tells Spring to search specified package for any
+         Autowire annotation tags and inject code accordingly. -->
+    <context:annotation-config/>
 
 
 </beans>

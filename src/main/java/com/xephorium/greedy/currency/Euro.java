@@ -9,7 +9,11 @@
 
 */
 package com.xephorium.greedy.currency;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component("euro")
+@Scope("singleton")
 public class Euro implements Currency
 {
     /*--- Fields ---*/

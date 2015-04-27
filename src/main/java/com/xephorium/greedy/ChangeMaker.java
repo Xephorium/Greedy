@@ -13,17 +13,28 @@
 */
 package com.xephorium.greedy;
 import com.xephorium.greedy.currency.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component("changeMaker")
+@Scope("prototype")
 public class ChangeMaker
 {
     /*--- Fields ---*/
 
-    private int      baseUnitValue;
-    private Currency currency = null;
+    @Autowired
+    private CurrencyFactory currencyFactory;
+    private Currency        currency = null;
+    private int             baseUnitValue;
 
 
     /*--- Constructors ---*/
 
+    // Default
+    public ChangeMaker() {}
+
+    // With Change String
     public ChangeMaker(String input)
     {
         setCurrency(input.charAt(0));
@@ -41,6 +52,8 @@ public class ChangeMaker
 
     public int getNumCoins()
     {
+        if(currency == null)
+            return 0;
         return currency.getMinNumCoins(baseUnitValue);
     }
 
@@ -49,10 +62,7 @@ public class ChangeMaker
 
     private void setCurrency(char symbol)
     {
-        if(symbol == '$')
-            currency = new Dollar();
-        else if(symbol == '€')
-            currency = new Euro();
+        currency = currencyFactory.currencyFromSymbol(symbol);
     }
 
     private double getValue(String s)

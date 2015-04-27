@@ -11,6 +11,7 @@
 
 */
 package com.xephorium.greedy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -27,11 +28,11 @@ public class Greedy
 
     // Run Program
     Greedy program = (Greedy) context.getBean("greedy");
-    program.run();
+    program.run(context);
   }
 
 
-  public void run()
+  public void run(ApplicationContext context)
   {
     /*--- Main Program ---*/
 
@@ -40,7 +41,8 @@ public class Greedy
 
     // Input User Data
     System.out.print("Enter monetary amount: ");
-    ChangeMaker changeMaker = new ChangeMaker(Utilities.inputSentinel());
+    ChangeMaker changeMaker = (ChangeMaker) context.getBean("changeMaker");
+    changeMaker.setChange(Utilities.inputSentinel());
 
     // Print Number of Coins
     int coins = changeMaker.getNumCoins();

@@ -12,15 +12,15 @@
 import com.xephorium.greedy.ChangeMaker;
 import com.xephorium.greedy.currency.*;
 import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 public class ChangeMakerTest
 {
-    /*--- setCurrency Method Test Cases ---*/
-
     @Test
-    public void dollarSymbolMeansDollarCurrency()
+    public void ifChangeIsNeverSetgetCoinsShouldReturnZero()
     {
-        ChangeMaker chMkr = new ChangeMaker("$25.35");
+        ChangeMaker chMkr = new ChangeMaker();
+        assertTrue(chMkr.getNumCoins() == 0);
     }
 
 }
