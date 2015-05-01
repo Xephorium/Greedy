@@ -10,30 +10,17 @@
 
 */
 package com.xephorium.greedy.currency;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component("currencyFactory")
-@Scope("singleton")
 public class CurrencyFactory
 {
-    /*--- Fields ---*/
-
-    @Autowired
-    private Dollar dollar;
-    @Autowired
-    private Euro   euro;
-
-
     /*--- Methods ---*/
 
     public Currency currencyFromSymbol(char symbol)
     {
         if(symbol == '$')
-            return dollar;
+            return new Dollar();
         else if(symbol == '€')
-            return euro;
+            return new Euro();
         else
             return null;
     }
@@ -41,9 +28,9 @@ public class CurrencyFactory
     public Currency currencyFromName(String name)
     {
         if(name.equalsIgnoreCase("dollar"))
-            return dollar;
+            return new Dollar();
         else if(name.equalsIgnoreCase("euro"))
-            return euro;
+            return new Euro();
         else
             return null;
     }

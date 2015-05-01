@@ -10,7 +10,6 @@
 
 */
 import com.xephorium.greedy.ChangeMaker;
-import com.xephorium.greedy.currency.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -18,11 +17,14 @@ import static org.junit.Assert.assertTrue;
 
 public class ChangeMakerTest
 {
+    // No longer relevant as of Fix #2 (commit 10).
+    /*
     @Test
     public void ifChangeIsNeverSetgetCoinsShouldReturnZero()
     {
         ChangeMaker chMkr = new ChangeMaker();
         assertEquals(0, chMkr.getNumCoins());
     }
+    */
 
 }

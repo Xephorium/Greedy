@@ -13,17 +13,11 @@
 */
 package com.xephorium.greedy;
 import com.xephorium.greedy.currency.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component("changeMaker")
-@Scope("prototype")
 public class ChangeMaker
 {
     /*--- Fields ---*/
 
-    @Autowired
     private CurrencyFactory currencyFactory;
     private Currency        currency = null;
     private int             baseUnitValue;
@@ -31,24 +25,15 @@ public class ChangeMaker
 
     /*--- Constructors ---*/
 
-    // Default
-    public ChangeMaker() {}
-
-    // With Change String
     public ChangeMaker(String input)
     {
+        currencyFactory = new CurrencyFactory();
         setCurrency(input.charAt(0));
         baseUnitValue = currency.convertToBaseUnit(getValue(input));
     }
 
 
     /*--- Public Methods ---*/
-
-    public void setChange(String input)
-    {
-        setCurrency(input.charAt(0));
-        baseUnitValue = currency.convertToBaseUnit(getValue(input));
-    }
 
     public int getNumCoins()
     {
