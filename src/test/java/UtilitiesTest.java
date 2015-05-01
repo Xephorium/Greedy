@@ -25,22 +25,22 @@ public class UtilitiesTest
     @Test
     public void firstCharMustBeValidSymbol()
     {
-        assertTrue(Utilities.validInput("$56.70"));
-        assertTrue(Utilities.validInput("€56.70"));
-        assertTrue(Utilities.validInput("€456.12"));
-        assertFalse(Utilities.validInput(("K56.70")));
-        assertFalse(Utilities.validInput((".56.70")));
-        assertFalse(Utilities.validInput(("756.70")));
+        assertEquals(true, Utilities.validInput("$56.70"));
+        assertEquals(true, Utilities.validInput("€56.70"));
+        assertEquals(true, Utilities.validInput("€456.12"));
+        assertEquals(false, Utilities.validInput(("K56.70")));
+        assertEquals(false, Utilities.validInput((".56.70")));
+        assertEquals(false, Utilities.validInput(("756.70")));
     }
 
     @Test
     public void remainingCharsMustBeValidAmount()
     {
-        assertTrue(Utilities.validInput("$255.99"));
-        assertTrue(Utilities.validInput("€45999.00"));
-        assertTrue(Utilities.validInput("$300"));
-        assertFalse(Utilities.validInput("€255.945"));
-        assertFalse(Utilities.validInput("$2.55.99"));
+        assertEquals(true, Utilities.validInput("$255.99"));
+        assertEquals(true, Utilities.validInput("€45999.00"));
+        assertEquals(true, Utilities.validInput("$300"));
+        assertEquals(false, Utilities.validInput("€255.945"));
+        assertEquals(false, Utilities.validInput("$2.55.99"));
     }
 
 }

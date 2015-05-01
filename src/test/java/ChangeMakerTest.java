@@ -12,6 +12,8 @@
 import com.xephorium.greedy.ChangeMaker;
 import com.xephorium.greedy.currency.*;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ChangeMakerTest
@@ -20,7 +22,7 @@ public class ChangeMakerTest
     public void ifChangeIsNeverSetgetCoinsShouldReturnZero()
     {
         ChangeMaker chMkr = new ChangeMaker();
-        assertTrue(chMkr.getNumCoins() == 0);
+        assertEquals(0, chMkr.getNumCoins());
     }
 
 }

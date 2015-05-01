@@ -14,7 +14,7 @@
 import com.xephorium.greedy.currency.Dollar;
 import com.xephorium.greedy.currency.Euro;
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class CurrencyTest
 {
@@ -29,13 +29,13 @@ public class CurrencyTest
     {
         Dollar dollar = new Dollar();
         int temp = dollar.convertToBaseUnit(25.52);
-        assertTrue(temp == 2552);
+        assertEquals(2552, temp);
 
         temp = dollar.convertToBaseUnit(99.99);
-        assertTrue(temp == 9999);
+        assertEquals(9999, temp);
 
         temp = dollar.convertToBaseUnit(1000.00);
-        assertTrue(temp == 100000);
+        assertEquals(100000, temp);
     }
 
     /*--- getMinNumCoins Method ---*/
@@ -45,13 +45,13 @@ public class CurrencyTest
     {
         Dollar dollar = new Dollar();
         int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.00));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(5.00));
-        assertTrue(temp == 5);
+        assertEquals(5, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(25.00));
-        assertTrue(temp == 25);
+        assertEquals(25, temp);
     }
 
     @Test
@@ -59,19 +59,19 @@ public class CurrencyTest
     {
         Dollar dollar = new Dollar();
         int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.01));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.05));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.10));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.25));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.00));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
     }
 
     @Test
@@ -79,16 +79,16 @@ public class CurrencyTest
     {
         Dollar dollar = new Dollar();
         int temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.75));
-        assertTrue(temp == 3);
+        assertEquals(3, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(1.25));
-        assertTrue(temp == 2);
+        assertEquals(2, temp);
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(.83));
-        assertTrue(temp == 7); // 3 Quarters, 1 Nickel, 3 Pennies
+        assertEquals(7, temp); // 3 Quarters, 1 Nickel, 3 Pennies
 
         temp = dollar.getMinNumCoins(dollar.convertToBaseUnit(25.16));
-        assertTrue(temp == 28); // 25 Dollars, 1 Dime, 1 Nickel, 1 Penny
+        assertEquals(28, temp); // 25 Dollars, 1 Dime, 1 Nickel, 1 Penny
     }
 
 
@@ -103,13 +103,13 @@ public class CurrencyTest
     {
       Euro euro = new Euro();
       int temp = euro.convertToBaseUnit(25.52);
-      assertTrue(temp == 2552);
+      assertEquals(2552, temp);
 
       temp = euro.convertToBaseUnit(99.99);
-      assertTrue(temp == 9999);
+      assertEquals(9999, temp);
 
       temp = euro.convertToBaseUnit(1000.00);
-      assertTrue(temp == 100000);
+      assertEquals(100000, temp);
     }
 
     /*--- getMinNumCoins Method ---*/
@@ -119,13 +119,13 @@ public class CurrencyTest
     {
         Euro euro = new Euro();
         int temp = euro.getMinNumCoins(euro.convertToBaseUnit(2.00));
-        assertTrue(temp == 1);
+        assertEquals(1, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(4.00));
-        assertTrue(temp == 2);
+        assertEquals(2, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(18.00));
-        assertTrue(temp == 9);
+        assertEquals(9, temp);
     }
 
     @Test
@@ -133,13 +133,13 @@ public class CurrencyTest
     {
         Euro euro = new Euro();
         int temp = euro.getMinNumCoins(euro.convertToBaseUnit(3.00));
-        assertTrue(temp == 2);
+        assertEquals(2, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(5.00));
-        assertTrue(temp == 3);
+        assertEquals(3, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(21.00));
-        assertTrue(temp == 11);
+        assertEquals(11, temp);
     }
 
     @Test
@@ -147,13 +147,13 @@ public class CurrencyTest
     {
         Euro euro = new Euro();
         int temp = euro.getMinNumCoins(euro.convertToBaseUnit(2.50));
-        assertTrue(temp == 2);
+        assertEquals(2, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(0.34));
-        assertTrue(temp == 4);
+        assertEquals(4, temp);
 
         temp = euro.getMinNumCoins(euro.convertToBaseUnit(1.86));
-        assertTrue(temp == 6);
+        assertEquals(6, temp);
     }
 
 }
